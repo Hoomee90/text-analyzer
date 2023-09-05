@@ -68,3 +68,21 @@ Code:
 const text = "zoinks zoinks zobnfd muppeteer";
 wordOmitFilter(text);
 Expected Output: "zoinks zoinks"
+
+Test: "It should return any of the banned words in a array"
+Code:
+const text = "zoinks zoinks zobnfd muppeteer";
+wordOmitFilter(text);
+Expected Output: "zoinks zoinks muppeteer"
+
+Test: "It should return any but the banned words in a array"
+Code:
+const text = "zoinks zoinks hi muppeteer hi";
+wordOmitFilter(text);
+Expected Output: ["hi", "hi"]
+
+Test: "It should return any but the banned words in a string"
+Code:
+const text = "zoinks zoinks hi muppeteer hi";
+wordOmitFilter(text);
+Expected Output: "hi hi"

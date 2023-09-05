@@ -6,7 +6,7 @@ function wordCounter(text) {
     const textArray = text.split(" ");
     textArray.forEach(element => {
       if (!Number(element)) {
-        wordCount++ ;
+        wordCount++;
       }
     });
     return wordCount;
@@ -21,6 +21,9 @@ function wordOccurrenceCounter(word, text) {
 
 function wordOmitFilter(text) {
   const textArray = text.toLowerCase().split(" ");
-  const bannedWords = "zoinks";
-  return textArray.filter((element) => element.includes(bannedWords.toLowerCase()));
+  const bannedWords = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];
+  const filteredArray = textArray.filter((element) => {
+    return !bannedWords.includes(element);
+  });
+  return filteredArray.join(" ");
 }
