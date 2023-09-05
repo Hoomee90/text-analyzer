@@ -13,3 +13,8 @@ function wordCounter(text) {
   }
   return 0;
 }
+
+function wordOccurrenceCounter(word, text) {
+  const textArray = text.toLowerCase().split(" ");
+  return textArray.filter((element) => element === word.toLowerCase()).length;
+}
