@@ -18,3 +18,9 @@ function wordOccurrenceCounter(word, text) {
   const textArray = text.toLowerCase().split(" ");
   return textArray.filter((element) => element.includes(word.toLowerCase())).length;
 }
+
+function wordOmitFilter(text) {
+  const textArray = text.toLowerCase().split(" ");
+  const bannedWords = "zoinks";
+  return textArray.filter((element) => element.includes(bannedWords.toLowerCase()));
+}

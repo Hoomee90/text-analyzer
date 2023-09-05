@@ -60,3 +60,11 @@ const text = "Red! Red. I like red, green, and yellow.";
 const word = "Red";
 wordOccurrenceCounter(word, text);
 Expected Output: 3
+
+Describe: wordOmitFilter()
+
+Test: "It should return one of the banned words in a array"
+Code:
+const text = "zoinks zoinks zobnfd muppeteer";
+wordOmitFilter(text);
+Expected Output: "zoinks zoinks"
