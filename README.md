@@ -70,29 +70,29 @@ Expected Output: 0
 
 Describe: wordOmitFilter()
 
-Test: "It should return one of the banned words in a array"
+Test: "It should return null if there is no text in the array"
 Code:
-const text = "zoinks zoinks zobnfd muppeteer";
+const text = "";
 wordOmitFilter(text);
-Expected Output: "zoinks zoinks"
+Expected Output: "null"
 
-Test: "It should return any of the banned words in a array"
+Test: "It should return the passage with the first instance of one of the banned words removed"
 Code:
-const text = "zoinks zoinks zobnfd muppeteer";
+const text = "zoinks zoinks hello muppeteer";
 wordOmitFilter(text);
-Expected Output: "zoinks zoinks muppeteer"
+Expected Output: "zoinks hello muppeteer"
 
-Test: "It should return any but the banned words in a array"
+Test: "It should return the passage with all instances of one of the banned words removed"
 Code:
-const text = "zoinks zoinks hi muppeteer hi";
+const text = "zoinks zoinks hello muppeteer";
 wordOmitFilter(text);
-Expected Output: ["hi", "hi"]
+Expected Output: "hello muppeteer"
 
-Test: "It should return any but the banned words in a string"
+Test: "It should return the passage with all instances of all of the banned words removed"
 Code:
-const text = "zoinks zoinks hi muppeteer hi";
+const text = "zoinks zoinks hello muppeteer";
 wordOmitFilter(text);
-Expected Output: "hi hi"
+Expected Output: "hello"
 
 Describe: boldPassage()
 
