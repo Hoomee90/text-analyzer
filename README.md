@@ -61,6 +61,13 @@ const word = "Red";
 wordOccurrenceCounter(word, text);
 Expected Output: 3
 
+Test: "If an empty string is passed in as a word, it should return 0."
+Code:
+const word = "";
+const text = "red RED Red!";
+wordOccurrenceCounter(word, text);
+Expected Output: 0
+
 Describe: wordOmitFilter()
 
 Test: "It should return one of the banned words in a array"

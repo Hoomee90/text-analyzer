@@ -16,7 +16,7 @@ function wordCounter(text) {
 
 function wordOccurrenceCounter(word, text) {
   const textArray = text.toLowerCase().split(" ");
-  return text ? textArray.filter((element) => element.includes(word.toLowerCase())).length : "";
+  return word ? textArray.filter((element) => element.includes(word.toLowerCase())).length : 0;
 }
 
 function wordOmitFilter(text) {
