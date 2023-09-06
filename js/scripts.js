@@ -1,22 +1,28 @@
+// Utility Logic
+
+function isEmpty(testString) {
+  return (testString.trim().length === 0);
+}
+
 // Business Logic (BS)
 
 function wordCounter(text) {
-  if (text && text.trim().length > 0){
-    let wordCount = 0;
-    const textArray = text.split(" ");
-    textArray.forEach(element => {
-      if (!Number(element)) {
-        wordCount++;
-      }
-    });
-    return wordCount;
+  if (isEmpty(text)){
+    return 0;
   }
-  return 0;
+  let wordCount = 0;
+  const textArray = text.split(" ");
+  textArray.forEach(element => {
+    if (!Number(element)) {
+      wordCount++;
+    }
+  });
+  return wordCount;
 }
 
 function wordOccurrenceCounter(word, text) {
   const textArray = text.toLowerCase().split(" ");
-  return word ? textArray.filter((element) => element.includes(word.toLowerCase())).length : null;
+  return !isEmpty(word) ? textArray.filter((element) => element.includes(word.toLowerCase())).length : null;
 }
 
 function wordOmitFilter(text) {
@@ -45,7 +51,7 @@ window.addEventListener("load", function() {
 });
 
 function boldPassage(word, text) {
-  if ((text.trim().length === 0) || (word.trim().length === 0)) {
+  if (isEmpty(word) || isEmpty(text)) {
     return null
   }
   const p = document.createElement("p");
