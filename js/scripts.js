@@ -10,14 +10,8 @@ function wordCounter(text) {
   if (isEmpty(text)){
     return 0;
   }
-  let wordCount = 0;
   const textArray = text.split(" ");
-  textArray.forEach(element => {
-    if (!Number(element)) {
-      wordCount++;
-    }
-  });
-  return wordCount;
+  return textArray.filter(element => element && !Number(element)).length
 }
 
 function wordOccurrenceCounter(word, text) {
