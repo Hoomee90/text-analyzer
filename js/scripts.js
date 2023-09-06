@@ -16,7 +16,7 @@ function wordCounter(text) {
 
 function wordOccurrenceCounter(word, text) {
   const textArray = text.toLowerCase().split(" ");
-  return textArray.filter((element) => element.includes(word.toLowerCase())).length;
+  return text ? textArray.filter((element) => element.includes(word.toLowerCase())).length : "";
 }
 
 function wordOmitFilter(text) {
@@ -27,3 +27,19 @@ function wordOmitFilter(text) {
   });
   return filteredArray.join(" ");
 }
+
+// UI Logic
+
+function handleFormSubmission(event) {
+  event.preventDefault();
+  const passage = document.querySelector("#text-passage").value;
+  const word = document.querySelector("#word").value;
+  const wordCount = wordCounter(passage);
+  const wordOccurrences = wordOccurrenceCounter(word, passage);
+  document.querySelector("#total-count").innerText = wordCount;
+  document.querySelector("#selected-count").innerText = wordOccurrences;
+}
+
+window.addEventListener("load", function() {
+  document.querySelector("form#word-counter").addEventListener("submit", handleFormSubmission);
+});
