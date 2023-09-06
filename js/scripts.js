@@ -42,8 +42,14 @@ function handleFormSubmission(event) {
   const word = document.querySelector("#word").value;
   const wordCount = wordCounter(passage);
   const wordOccurrences = wordOccurrenceCounter(word, passage);
+  
   document.querySelector("#total-count").innerText = wordCount;
   document.querySelector("#selected-count").innerText = wordOccurrences;
+  let boldedPassage = boldPassage(word, passage);
+  if(boldedPassage) { document.querySelector("div#bolded-passage").append(boldedPassage)
+  } else {
+    document.querySelector("div#bolded-passage").innerText = null;
+  }
 }
 
 window.addEventListener("load", function() {
