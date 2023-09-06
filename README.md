@@ -93,3 +93,19 @@ Code:
 const text = "zoinks zoinks hi muppeteer hi";
 wordOmitFilter(text);
 Expected Output: "hi hi"
+
+Describe: boldPassage()
+
+Test: "It should return null if no word or text is entered."
+Code:
+const text = "";
+const word = "";
+boldPassage(word, text);
+Expected Output: null
+
+Test: "It should return a non-matching word in a p tag."
+Code:
+const word = "hello";
+const text = "yo";
+boldPassage(word, text);
+Expected Output: <p>yo</p>
