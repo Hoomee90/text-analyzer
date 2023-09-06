@@ -16,7 +16,7 @@ function wordCounter(text) {
 
 function wordOccurrenceCounter(word, text) {
   const textArray = text.toLowerCase().split(" ");
-  return word ? textArray.filter((element) => element.includes(word.toLowerCase())).length : 0;
+  return word ? textArray.filter((element) => element.includes(word.toLowerCase())).length : null;
 }
 
 function wordOmitFilter(text) {
@@ -43,3 +43,12 @@ function handleFormSubmission(event) {
 window.addEventListener("load", function() {
   document.querySelector("form#word-counter").addEventListener("submit", handleFormSubmission);
 });
+
+function boldPassage(word, text) {
+  if ((text.trim().length === 0) || (word.trim().length === 0)) {
+    return null
+  }
+  const p = document.createElement("p");
+  p.append(text);
+  return p;
+}
