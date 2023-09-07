@@ -2,7 +2,7 @@
 
 function isEmpty(testVar) {
   if (typeof testVar === "string") {
-    return testVar.trim().length === 0; 
+    return testVar.length === 0; 
   } 
   else if (typeof testVar === "array") {
     return (testVar.some(element => element !== ""));
@@ -34,7 +34,7 @@ function handleFormSubmission(event) {
   event.preventDefault();
   const passage = document.querySelector("#text-passage").value;
   const passageArray = passage.toLowerCase().split(" ");
-  const word = document.querySelector("#word").value;
+  const word = document.querySelector("#word").value.trim();
   const wordCount = wordCounter(passageArray);
   const wordOccurrences = wordOccurrenceCounter(word, passageArray);
   const boldedContainer =  document.querySelector("div#bolded-passage");
@@ -58,7 +58,7 @@ function boldPassage(substring, text) {
   }
   const p = document.createElement("p");
   text.forEach((element, index) => {
-    for (; element;) {
+    while (element) {
       if (element.startsWith(substring)) {
         const bold = document.createElement("strong");
         bold.append(substring);
