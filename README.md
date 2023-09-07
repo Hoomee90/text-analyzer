@@ -123,3 +123,10 @@ const word = "hello";
 const text = "hello there";
 boldPassage(word, text);
 Expected Output: <p><strong>hello</strong> there</p>
+
+Test: "It should wrap matching parts of words in strong tags and not the parts that don't
+Code:
+const word = "hi";
+const text = "hi, this is very high in the air";
+boldPassage(word, text);
+Expected Output: <p><strong>hi</strong>, t<strong>hi</strong>s is very <strong>hi</strong>gh in the air</p>
