@@ -1,29 +1,30 @@
 // Utility Logic
 
-function isEmpty(testString) {
-  return (testString.trim().length === 0);
+function isEmpty(testVar) {
+  if (typeof testVar === "string") {
+    return testVar.trim().length === 0; 
+  } 
+  else if (typeof testVar === "array") {
+    return (testVar.some(element => element !== ""));
+  }
+  return false;
 }
 
 // Business Logic (BS)
 
 function wordCounter(text) {
-  const textArray = text.split(" ");
   return isEmpty(text) ? 0 
-  : textArray.filter(element => element && !Number(element)).length;
+  : text.filter(element => element && !Number(element)).length;
 }
 
 function wordOccurrenceCounter(word, text) {
-  const textArray = text.toLowerCase().split(" ");
   return isEmpty(word) ? 0 
-  : textArray.filter(element => element.includes(word.toLowerCase())).length;
+  : text.filter(element => element.includes(word.toLowerCase())).length;
 }
 
 function wordOmitFilter(text) {
-  const textArray = text.toLowerCase().split(" ");
   const bannedWords = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];
-  const filteredArray = textArray.filter((element) => {
-    return !bannedWords.includes(element);
-  });
+  const filteredArray = text.filter(element => !bannedWords.includes(element));
   return filteredArray.join(" ");
 }
 
@@ -32,15 +33,16 @@ function wordOmitFilter(text) {
 function handleFormSubmission(event) {
   event.preventDefault();
   const passage = document.querySelector("#text-passage").value;
+  const passageArray = passage.toLowerCase().split(" ");
   const word = document.querySelector("#word").value;
-  const wordCount = wordCounter(passage);
-  const wordOccurrences = wordOccurrenceCounter(word, passage);
+  const wordCount = wordCounter(passageArray);
+  const wordOccurrences = wordOccurrenceCounter(word, passageArray);
   const boldedContainer =  document.querySelector("div#bolded-passage");
   
   document.querySelector("#total-count").innerText = wordCount;
   document.querySelector("#selected-count").innerText = wordOccurrences;
   boldedContainer.innerHTML = "";
-  let boldedPassage = boldPassage(word, passage);
+  let boldedPassage = boldPassage(word, passageArray);
   if(boldedPassage) { 
     boldedContainer.append(boldedPassage);
   }
@@ -55,8 +57,7 @@ function boldPassage(substring, text) {
     return null;
   }
   const p = document.createElement("p");
-  let textArray = text.split(" ");
-  textArray.forEach((element, index) => {
+  text.forEach((element, index) => {
     for (; element;) {
       if (element.startsWith(substring)) {
         const bold = document.createElement("strong");
@@ -68,7 +69,7 @@ function boldPassage(substring, text) {
         element = element.slice(1);
       }
     }
-    if (index !== (textArray.length - 1)) {
+    if (index !== (text.length - 1)) {
         p.append(" ");
       }
   });
