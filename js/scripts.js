@@ -4,7 +4,7 @@ function isEmpty(testVar) {
   if (typeof testVar === "string") {
     return testVar.length === 0; 
   } 
-  else if (typeof testVar === "array") {
+  else if (Array.isArray(testVar)) {
     return (testVar.some(element => element !== ""));
   }
   return false;
