@@ -1,3 +1,39 @@
+# Text Analyzer
+
+#### By **Samantha Callie**, with code from [Epicodus](https://www.learnhowtoprogram.com/introduction-to-programming/getting-started-at-epicodus/learn-how-to-program)
+
+#### A site for finding wordcounts and occurrences
+
+## Technologies Used
+
+* HTML
+* CSS
+* BootStrap
+* JS
+
+## Description
+
+This browser page is a form that be inputted with text. Upon submission, it will tell the user the wordcount of the text passage, as well as the number of occurrences of another inputted word. It bolds them too!
+
+## Setup/Installation Requirements
+
+* Clone repository
+* Navigate to the top level of the directory
+* Open index.html in your browser
+
+## Known Bugs
+
+* There are no known bugs on the site
+
+## License
+
+[GNU GPLv3](https://choosealicense.com/licenses/agpl-3.0/)
+
+Copyright (c) 2023 Samantha Callie
+
+## Test Used During Development
+
+#### For some strange reason this is where we're supposed to store our pseudocode tests for review  
 Describe: wordCounter()
 
 Test: "It should return 1 if a passage has just one word."
