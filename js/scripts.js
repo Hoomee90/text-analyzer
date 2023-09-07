@@ -7,16 +7,15 @@ function isEmpty(testString) {
 // Business Logic (BS)
 
 function wordCounter(text) {
-  if (isEmpty(text)){
-    return 0;
-  }
   const textArray = text.split(" ");
-  return textArray.filter(element => element && !Number(element)).length;
+  return isEmpty(text) ? 0 
+  : textArray.filter(element => element && !Number(element)).length;
 }
 
 function wordOccurrenceCounter(word, text) {
   const textArray = text.toLowerCase().split(" ");
-  return !isEmpty(word) ? textArray.filter((element) => element.includes(word.toLowerCase())).length : null;
+  return isEmpty(word) ? 0 
+  : textArray.filter(element => element.includes(word.toLowerCase())).length;
 }
 
 function wordOmitFilter(text) {
@@ -36,13 +35,14 @@ function handleFormSubmission(event) {
   const word = document.querySelector("#word").value;
   const wordCount = wordCounter(passage);
   const wordOccurrences = wordOccurrenceCounter(word, passage);
+  const boldedContainer =  document.querySelector("div#bolded-passage");
   
   document.querySelector("#total-count").innerText = wordCount;
   document.querySelector("#selected-count").innerText = wordOccurrences;
+  boldedContainer.innerHTML = "";
   let boldedPassage = boldPassage(word, passage);
-  if(boldedPassage) { document.querySelector("div#bolded-passage").append(boldedPassage);
-  } else {
-    document.querySelector("div#bolded-passage").innerText = null;
+  if(boldedPassage) { 
+    boldedContainer.append(boldedPassage);
   }
 }
 
