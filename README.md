@@ -186,3 +186,9 @@ Code:
 const text = ["an", "excellent", "pig", "latin", "ovation", "queue"];
 pigLatin(text);
 Expected Output: "anway excellentway igpay atinlay ovationway ueueqay"
+
+Test: "It should return the string with any words starting with qu's first two letters cut to the end with an added 'ay'"
+Code:
+const text = ["an", "excellent", "pig", "latin", "ovation", "queue"];
+pigLatin(text);
+Expected Output: "anway excellentway igpay atinlay ovationway euequay"

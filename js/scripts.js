@@ -53,14 +53,18 @@ function pigLatin(text) {
   }
   let latinText = "";
   text.forEach((element) => {
-      const vowels = ["a", "e", "i", "o", "u"];
-      if (vowels.some(vowel => element.startsWith(vowel))) {
-        latinText = latinText.concat(" ", element, "way");
-        console.log(latinText);
-      } else {
-        latinText = latinText.concat(" ", element.slice(1), element[0], "ay");
-        console.log(latinText);
-      }
+    const vowels = ["a", "e", "i", "o", "u"];
+    if (vowels.some(vowel => element.startsWith(vowel))) {
+      latinText = latinText.concat(" ", element, "way");
+      console.log(latinText);
+    } 
+    else if (element.startsWith("qu")) {
+      latinText = latinText.concat(" ", element.slice(2), "quay");
+      console.log(latinText);
+    }
+    else if (!vowels.some(vowel => element.startsWith(vowel))) {
+      latinText = latinText.concat(" ", element.slice(1), element[0], "ay");
+    }
   });
   return latinText;
 }
