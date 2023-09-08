@@ -29,7 +29,7 @@ function wordOccurrenceCounter(word, text) {
   return text.filter(element => element.includes(word.toLowerCase())).length;
 }
 
-//Unused
+//Unused BS
 
 function wordOmitFilter(text) {
   const bannedWords = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];

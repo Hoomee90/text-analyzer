@@ -13,7 +13,7 @@
 
 ## Description
 
-This browser page is a form that be inputted with text. Upon submission, it will tell the user the wordcount of the text passage, as well as the number of occurrences of another inputted word. It bolds them too!
+This browser page is a form that be inputted with text. Upon submission, it will tell the user the wordcount of the text passage, as well as the number of occurrences of another inputted word. It bolds them too! There's a couple unused functions here too, like a omit filter and a pig latin converter.
 
 ## Setup/Installation Requirements
 
