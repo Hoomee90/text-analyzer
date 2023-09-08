@@ -2,13 +2,13 @@
 
 function isEmpty(...args) {
   for (let i=0; i < args.length; i++) {
-    console.log(args[i]);
     if (typeof args[i] === "string") {
       return args[i].length === 0; 
     } 
     else if (Array.isArray(args[i])) {
       return (args[i].some(element => element.length === 0));
     }
+    return true
   }
   return false
 }
@@ -33,6 +33,16 @@ function wordOmitFilter(text) {
   const bannedWords = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];
   const filteredArray = text.filter(element => !bannedWords.includes(element));
   return filteredArray.join(" ");
+}
+
+function firstWordInstance(word, text) {
+  for (let i = 0; i < text.length; i++) {
+    console.log(i);
+    if (word === text[i]) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 // UI Logic
