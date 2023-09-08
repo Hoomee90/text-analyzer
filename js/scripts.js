@@ -1,25 +1,32 @@
 // Utility Logic
 
-function isEmpty(testVar) {
-  if (typeof testVar === "string") {
-    return testVar.length === 0; 
-  } 
-  else if (Array.isArray(testVar)) {
-    return (testVar.some(element => element !== ""));
+function isEmpty(...args) {
+  for (let i=0; i < args.length; i++) {
+    console.log(args[i]);
+    if (typeof args[i] === "string") {
+      return args[i].length === 0; 
+    } 
+    else if (Array.isArray(args[i])) {
+      return (args[i].some(element => element.length === 0));
+    }
   }
-  return false;
+  return false
 }
 
 // Business Logic (BS)
 
 function wordCounter(text) {
-  return isEmpty(text) ? 0 
-  : text.filter(element => element && !Number(element)).length;
+  if (isEmpty(text)) {
+    return 0;
+  }
+  return text.filter(element => element && !Number(element)).length;
 }
 
 function wordOccurrenceCounter(word, text) {
-  return isEmpty(word) ? 0 
-  : text.filter(element => element.includes(word.toLowerCase())).length;
+  if (isEmpty(text)) {
+    return 0;
+  }
+  return text.filter(element => element.includes(word.toLowerCase())).length;
 }
 
 function wordOmitFilter(text) {
@@ -32,7 +39,7 @@ function wordOmitFilter(text) {
 
 function handleFormSubmission(event) {
   event.preventDefault();
-  const passage = document.querySelector("#text-passage").value;
+  const passage = document.querySelector("#text-passage").value.trim();
   const passageArray = passage.toLowerCase().split(" ");
   const word = document.querySelector("#word").value.trim();
   const wordCount = wordCounter(passageArray);
@@ -53,7 +60,7 @@ window.addEventListener("load", function() {
 });
 
 function boldPassage(substring, text) {
-  if (isEmpty(substring) || isEmpty(text)) {
+  if (isEmpty(substring, text)) {
     return null;
   }
   const p = document.createElement("p");
