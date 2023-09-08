@@ -171,6 +171,12 @@ Describe: pigLatin()
 
 Test: "It should return null if no text is entered."
 Code:
-const text = "";
-boldPassage(text);
+const text = [""];
+pigLatin(text);
 Expected Output: null
+
+Test: "It should return the string with 'way' added to all words that start with vowels."
+Code:
+const text = ["an", "excellent", "pig", "latin", "ovation", "queue"];
+pigLatin(text);
+Expected Output: "anway excellentway pig latin ovationway queue"

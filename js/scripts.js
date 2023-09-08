@@ -51,6 +51,18 @@ function pigLatin(text) {
   if (isEmpty(text)) {
     return 0;
   }
+  let latinText = "test";
+  text.forEach((element) => {
+      const vowels = ["a", "e", "i", "o", "u"];
+      if (vowels.some(vowel => element.startsWith(vowel))) {
+        latinText = latinText.concat(" ", element, "way");
+        console.log(latinText);
+      } else {
+        latinText = latinText.concat(" ", element);
+        console.log(latinText);
+      }
+  });
+  return latinText;
 }
 
 // UI Logic
