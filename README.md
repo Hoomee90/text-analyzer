@@ -180,3 +180,9 @@ Code:
 const text = ["an", "excellent", "pig", "latin", "ovation", "queue"];
 pigLatin(text);
 Expected Output: "anway excellentway pig latin ovationway queue"
+
+Test: "It should return the string with the first consonant moved to the end and 'ay' added to all words that don't start with vowels."
+Code:
+const text = ["an", "excellent", "pig", "latin", "ovation", "queue"];
+pigLatin(text);
+Expected Output: "anway excellentway igpay atinlay ovationway ueueqay"
