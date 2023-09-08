@@ -8,9 +8,9 @@ function isEmpty(...args) {
     else if (Array.isArray(args[i])) {
       return (args[i].some(element => element.length === 0));
     }
-    return true
+    return true;
   }
-  return false
+  return false;
 }
 
 // Business Logic (BS)
@@ -29,6 +29,8 @@ function wordOccurrenceCounter(word, text) {
   return text.filter(element => element.includes(word.toLowerCase())).length;
 }
 
+//Unused
+
 function wordOmitFilter(text) {
   const bannedWords = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];
   const filteredArray = text.filter(element => !bannedWords.includes(element));
@@ -43,6 +45,12 @@ function firstWordInstance(word, text) {
     }
   }
   return -1;
+}
+
+function pigLatin(text) {
+  if (isEmpty(text)) {
+    return 0;
+  }
 }
 
 // UI Logic

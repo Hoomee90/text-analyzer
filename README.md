@@ -166,3 +166,11 @@ const word = "hi";
 const text = "hi, this is very high in the air";
 boldPassage(word, text);
 Expected Output: <p><strong>hi</strong>, t<strong>hi</strong>s is very <strong>hi</strong>gh in the air</p>
+
+Describe: pigLatin()
+
+Test: "It should return null if no text is entered."
+Code:
+const text = "";
+boldPassage(text);
+Expected Output: null
