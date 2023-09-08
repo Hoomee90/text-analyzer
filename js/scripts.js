@@ -1,12 +1,12 @@
 // Utility Logic
 
-function isEmpty(...args) {
+function isInvalid(...args) {
   for (let i=0; i < args.length; i++) {
     if (typeof args[i] === "string") {
       return args[i].length === 0; 
     } 
     else if (Array.isArray(args[i])) {
-      return (args[i].some(element => element.length === 0));
+      return (args[i].some(element => element.length === 0 || typeof element !== "string"));
     }
     return true;
   }
@@ -16,14 +16,14 @@ function isEmpty(...args) {
 // Business Logic (BS)
 
 function wordCounter(text) {
-  if (isEmpty(text)) {
+  if (isInvalid(text)) {
     return 0;
   }
   return text.filter(element => element && !Number(element)).length;
 }
 
 function wordOccurrenceCounter(word, text) {
-  if (isEmpty(text)) {
+  if (isInvalid(text)) {
     return 0;
   }
   return text.filter(element => element.includes(word.toLowerCase())).length;
@@ -48,22 +48,20 @@ function firstWordInstance(word, text) {
 }
 
 function pigLatin(text) {
-  if (isEmpty(text)) {
-    return 0;
+  if (isInvalid(text)) {
+    return null;
   }
   let latinText = "";
   text.forEach((element) => {
     const vowels = ["a", "e", "i", "o", "u"];
     if (vowels.some(vowel => element.startsWith(vowel))) {
-      latinText = latinText.concat(" ", element, "way");
-      console.log(latinText);
+      latinText = latinText.concat(element, "way ");
     } 
     else if (element.startsWith("qu")) {
-      latinText = latinText.concat(" ", element.slice(2), "quay");
-      console.log(latinText);
+      latinText = latinText.concat(element.slice(2), "quay ");
     }
     else if (!vowels.some(vowel => element.startsWith(vowel))) {
-      latinText = latinText.concat(" ", element.slice(1), element[0], "ay");
+      latinText = latinText.concat(element.slice(1), element[0], "ay ");
     }
   });
   return latinText;
@@ -94,7 +92,7 @@ window.addEventListener("load", function() {
 });
 
 function boldPassage(substring, text) {
-  if (isEmpty(substring, text)) {
+  if (isInvalid(substring, text)) {
     return null;
   }
   const p = document.createElement("p");
