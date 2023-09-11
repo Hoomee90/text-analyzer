@@ -39,7 +39,6 @@ function wordOmitFilter(text) {
 
 function firstWordInstance(word, text) {
   for (let i = 0; i < text.length; i++) {
-    console.log(i);
     if (word === text[i]) {
       return i;
     }
@@ -54,7 +53,7 @@ function pigLatin(text) {
   let latinText = "";
   text.forEach((element) => {
     const vowels = ["a", "e", "i", "o", "u"];
-    if (vowels.some(vowel => element.startsWith(vowel))) {
+    if (vowels.some(vowel => element.match(/^[aeiou]/))) {
       latinText = latinText.concat(element, "way ");
     } 
     else if (element.startsWith("qu")) {
